@@ -1,0 +1,122 @@
+.navbar{ 
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+.navbar .logo{
+    width: 150px;
+}
+.navbar-menu{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    color: #3aafa9;
+    font-size: 18px;
+}
+.navbar-right{
+    display: flex;
+    align-items: center;
+    gap:40px;
+}
+.sign-in{
+    background-color:transparent;
+    font-size: 16px;
+    color: #3aafa9;
+    border: 1px solid #172521;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.sign-in:hover{
+    background-color: #def2f1;
+}
+
+.navbar .active{
+    padding-bottom: 2px;
+    border-bottom: 2px solid #172521;
+}
+.navbar li{
+    cursor: pointer;
+}
+.navbar-search-icon{
+    position: relative;
+}
+.navbar-profile{
+    position: relative;
+}
+.nav-profile-dropdown{
+    position: absolute;
+    display: none;
+    right: 0;
+    z-index:1 ;
+}
+.navbar-profile:hover .nav-profile-dropdown{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #def2f1;
+    padding: 12px 25px;
+    border-radius: 4px;
+    border-radius: 1px solid aqua;
+    outline: 2px solid white;
+    list-style: none;
+}
+.nav-profile-dropdown li{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+.nav-profile-dropdown img{
+    width: 20px;
+}
+.nav-profile-dropdown li:hover{
+    color:aqua;
+}
+@media (max-width:1050px){
+    .navbar .logo{
+        width: 140px;
+    }
+    .navbar-menu{
+        gap:20px;
+        font-size: 17px;
+    }
+    .navbar-right{
+        gap:30px ;  
+    }
+    .navbar-right img{
+        width: 22px;
+    }
+    .donate .sign-in{
+        padding: 8px 25px;
+    }
+}
+@media (max-width:900px){
+    .navbar .logo{
+        width: 120px;
+    }
+    .navbar-menu{
+        gap:15px;
+        font-size: 16px;
+    }
+    .navbar-right{
+        gap:20px ;  
+    }
+    .navbar-right img{
+        width: 20px;
+    }
+    .donate .sign-in{
+        padding: 7px 20px;
+        font-size: 15px;
+    }
+}
+@media (max-width:750px){
+    .navbar-menu{
+        display: none;
+        
+    }
+    
+}

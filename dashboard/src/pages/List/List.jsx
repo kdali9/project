@@ -5,10 +5,10 @@ import { toast } from "react-toastify";
 import { useEffect } from "react";
 
 
-const List = () => {
+const List = ({url}) => {
   const [list, setList] = useState([]);
 
-  const url = "http://localhost:4000"
+  
 
   const fetchList = async () => {
     const response = await axios.get(`${url}/api/charity/list`);

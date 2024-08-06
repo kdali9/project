@@ -5,11 +5,13 @@ import { toast } from "react-toastify";
 import { useEffect } from "react";
 
 
-const List = ({ url }) => {
+const List = () => {
   const [list, setList] = useState([]);
 
+  const url = "http://localhost:4000"
+
   const fetchList = async () => {
-    const response = await axios.get(`${url}/api/donation/list`);
+    const response = await axios.get(`${url}/api/charity/list`);
     if (response.data.success) {
       setList(response.data.data);
     } else {
@@ -18,7 +20,7 @@ const List = ({ url }) => {
   };
 
   const removeDonation = async (donationId) => {
-    const response = await axios.post(`${url}/api/donation/remove`, {
+    const response = await axios.post(`${url}/api/charity/remove`, {
       id: donationId,
     });
     await fetchList();

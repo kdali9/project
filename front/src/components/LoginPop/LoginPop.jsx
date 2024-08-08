@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const LoginPop = ({ setShowLogin }) => {
 
-  const { url } = useContext(StoreContext);
+  const { url ,setToken} = useContext(StoreContext);
   const [currentState, setCurrentState] = useState("Login");
   const [data, setData] = useState({
     name: "",
@@ -15,26 +15,32 @@ const LoginPop = ({ setShowLogin }) => {
   });
 
   const onChangeHandler = (event) => {
-    const { name, value } = event.target;
-    setData(prevData => ({ ...prevData, [name]: value }));
+    const  name = event.target.name;
+    const value = event.target.value;
+    setData(data => ({ ...data, [name]: value }));
   };
 
   const onLogin = async (event) => {
     event.preventDefault();
-    let newUrl = currentState === "Login" ? `${url}/api/user/login` : `${url}/api/user/register`;
+    let newUrl = url;
+    if(currentState === "Login") {
+      newUrl += "/api/user/login"}
+      else {
+      newUrl += "/api/user/register"
+    }
 
-    try {
+  
       const response = await axios.post(newUrl, data);
       if (response.data.success) {
-        localStorage.setItem("token", response.data.token);
-        setShowLogin(false);
-      } else {
-        alert(response.data.message);
+        setToken(response.data.token);
+        localStorage.setItem("token",response.data.token);
+        setShowLogin(false)
       }
-    } catch (error) {
-      alert("An error occurred while processing your request. Please try again later.");
-      console.error("Login/SignUp Error:", error);
-    }
+      else{
+        alert(response.data.message)
+      }
+  
+    
   };
 
   return (

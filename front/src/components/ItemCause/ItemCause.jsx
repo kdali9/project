@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import "./ItemCause.css";
 import { useNavigate } from "react-router-dom";
 import Progress from "../Progress/Progress";
+import {Link} from "react-router-dom"
+
 
 const ItemCause = ({ id, name, image, description,goalAmount }) => {
 
@@ -19,9 +21,11 @@ const ItemCause = ({ id, name, image, description,goalAmount }) => {
       <p className="cause-item-desc">{description}</p>
       <Progress goalAmount={goalAmount}/>
       <div>
-          <button className="cause-item-btn">Donate</button>
+      <Link to ="/make"><button className="cause-item-btn">Donate</button></Link>
+ 
       </div>
     </div>
+     
   );
 };
 
